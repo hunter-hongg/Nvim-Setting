@@ -8,10 +8,10 @@
 2. 重启Neovim 
 3. 运行;cd命令选择指定目录，按下`<C-t>`快捷键打开NvimTree目录树
 4. 使用hjkl移动光标，不能使用键盘上的上下左右
-5. 使用<C-h><C-j><C-k><C-l>移动窗口 
+5. 使用`<C-h>` `<C-j>` `<C-k>` `<C-l>`移动窗口 
 6. 进入编辑模式等同标准Neovim 
 ## 配置内容
-1. 使用OneDarkPro代替默认配色，可使用<F5>切换回OneDarkPro，<F6>切换VSCode主题，<F7>切换Nord主题
+1. 使用OneDarkPro代替默认配色，可使用`<F5>`切换回OneDarkPro，`<F6>`切换VSCode主题，`<F7>`切换Nord主题
 2. 使用Treesitter配置高亮，默认下载C C++ Rust Lua Python Markdown 
 3. 禁用上下左右键
 4. 对调;:
