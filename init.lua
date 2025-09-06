@@ -26,8 +26,12 @@ require('packer').startup(function(use)
     use 'shaunsingh/nord.nvim'
     use 'mofiqul/vscode.nvim'
     use 'lourenci/github-colors'
+    use {"akinsho/horizon.nvim", tag = "*"}
+--  use 'ashish2508/Eezzy.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use "rebelot/kanagawa.nvim"
 
-    use 'itchyny/lightline.vim'
+--  use 'itchyny/lightline.vim'
     use {
         's1n7ax/nvim-terminal', 
         config = function()
@@ -41,6 +45,18 @@ require('packer').startup(function(use)
         config = function()
             require('neogit').setup()
         end, 
+    }
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+    use 'nvim-tree/nvim-tree.lua'
+    use 'Yggdroot/indentLine'
+    use 'rlue/vim-barbaric'
+    use 'jayli/vim-easycomplete'
+    use 'tpope/vim-fugitive'
+    use 'frazrepo/vim-rainbow'
+    use 'tpope/vim-surround'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 end)
 
@@ -94,14 +110,37 @@ rt.setup({
     end,
   },
 })
-
+-- lualine配置
+require('lualine').setup {
+    options = {
+        icons_enabled = false,
+        theme = 'onedark',
+        component_separators = { left = '|', right = '|'},
+        section_separators = { left = '', right = ''},
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff'},
+        lualine_c = {'filename'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+    },
+}
 -- 基本设置
 
 vim.cmd("set nocompatible")
 vim.cmd("set noshowmode")
 vim.cmd("set number")
 vim.cmd("set cursorline")
-vim.cmd("set mouse=")
 vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set expandtab")
@@ -140,6 +179,7 @@ vim.cmd("nnoremap <F4> >>")
 vim.cmd("nnoremap <F5> :colorscheme onedark_vivid<CR>")
 vim.cmd("nnoremap <F6> :colorscheme vscode<CR>")
 vim.cmd("nnoremap <F7> :colorscheme nord<CR>")
+vim.cmd("nnoremap <F8> :colorscheme horizon<CR>")
 
 -- Meta快捷键 
 
@@ -162,6 +202,9 @@ vim.cmd("nnoremap <Leader>s :so $MYVIMRC<CR>")
 
 vim.cmd("nnoremap <Leader>ts :cd ~/学习平台<CR>")
 vim.cmd("nnoremap <Leader>tr :cd ~/RSLN<CR>")
+
+vim.cmd("nnoremap <Leader>pi :PackerInstall<CR>")
+vim.cmd("nnoremap <Leader>pu :PackerUpdate<CR>")
 
 -- 窗口快捷键
 
