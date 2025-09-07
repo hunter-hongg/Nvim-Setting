@@ -1,65 +1,6 @@
 -- Neovim配置文件
 
--- Packer.nvim配置
-vim.cmd [[packadd packer.nvim]]
-require('packer').startup(function(use) 
-    use 'wbthomason/packer.nvim'
-
-    use 'nvim-treesitter/nvim-treesitter'
-    use 'neovim/nvim-lspconfig'
-    use 'simrat39/rust-tools.nvim'
-    use 'preservim/vim-markdown'
-    use {
-      'Kicamon/markdown-table-mode.nvim', 
-      config = function()
-        require 'markdown-table-mode'.setup()
-      end, 
-    }
-    use {
-      'tadmccorkle/markdown.nvim', 
-      config = function()
-        require 'markdown'.setup()
-      end, 
-    }
-
-    use 'olimorris/onedarkpro.nvim'
-    use 'shaunsingh/nord.nvim'
-    use 'mofiqul/vscode.nvim'
-    use 'lourenci/github-colors'
-    use {"akinsho/horizon.nvim", tag = "*"}
---  use 'ashish2508/Eezzy.nvim'
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use "rebelot/kanagawa.nvim"
-
---  use 'itchyny/lightline.vim'
-    use {
-        's1n7ax/nvim-terminal', 
-        config = function()
-            vim.o.hidden = true
-            require('nvim-terminal').setup()
-        end,
-    }
-    use 'karb94/neoscroll.nvim'
-    use {
-        'NeogitOrg/neogit', 
-        config = function()
-            require('neogit').setup()
-        end, 
-    }
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-    use 'nvim-tree/nvim-tree.lua'
-    use 'Yggdroot/indentLine'
-    use 'rlue/vim-barbaric'
-    use 'jayli/vim-easycomplete'
-    use 'tpope/vim-fugitive'
-    use 'frazrepo/vim-rainbow'
-    use 'tpope/vim-surround'
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
-end)
-
+require("config.packer")
 -- Treesitter配置
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = {"c", "lua", "python", "cpp", "rust", "markdown"},
@@ -135,6 +76,10 @@ require('lualine').setup {
         lualine_z = {}
     },
 }
+-- toggleterm配置
+require('toggleterm').setup{}
+-- 2048配置
+require('2048').setup{}
 -- 基本设置
 
 vim.cmd("set nocompatible")
@@ -157,7 +102,7 @@ vim.cmd("set noswapfile")
 -- 进阶设置
 
 vim.cmd("syntax enable")
-vim.cmd("colorscheme onedark_vivid ")
+vim.cmd("colorscheme onedark_vivid")
 vim.cmd("filetype plugin indent on")
 
 -- 基础变量 
@@ -180,10 +125,13 @@ vim.cmd("nnoremap <F5> :colorscheme onedark_vivid<CR>")
 vim.cmd("nnoremap <F6> :colorscheme vscode<CR>")
 vim.cmd("nnoremap <F7> :colorscheme nord<CR>")
 vim.cmd("nnoremap <F8> :colorscheme horizon<CR>")
+vim.cmd("nnoremap <F9> :Play2048<CR>")
 
 -- Meta快捷键 
 
-vim.cmd("nnoremap <M-1> :terminal<CR>")
+vim.cmd("nnoremap <M-1> :ToggleTerm<CR>")
+vim.cmd("nnoremap <M-2> :terminal<CR>")
+vim.cmd("nnoremap <M-3> :!")
 
 -- Make快捷键 
 
@@ -216,6 +164,7 @@ vim.cmd("nnoremap <C-l> <C-w><C-l>")
 -- 插件快捷键
 
 vim.cmd("nnoremap <C-t> :NvimTreeToggle<CR>")
+vim.cmd("nnoremap <C-g> :Neogit<CR>")
 
 -- 对调;:
 
