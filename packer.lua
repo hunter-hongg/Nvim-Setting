@@ -70,4 +70,5 @@ require('packer').startup(function(use)
             require("2048").setup()
         end,
     })
+    use 'backdround/global-note.nvim'
 end)

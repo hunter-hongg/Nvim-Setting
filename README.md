@@ -2,7 +2,15 @@
 ## 简介
 - 这是我的Neovim配置，主要用于开发C和C++语言
 ## 依赖
-- 需下载>0.10版本的Neovim，并将packer.nvim下载好存放至~/.local/share/nvim/site/pack/*/start目录
+1. Neovim > 0.10
+2. packer.nvim下载好，存放至~/.local/share/nvim/site/pack/packer/start目录
+## 下载方法
+1. 克隆仓库: `git clone git@github.com:hunter-hongg/Nvim-Setting`
+2. 新建配置目录: `mkdir -p ~/.config/nvim `
+3. 复制插件下载: `cp Nvim-Setting/packer.lua ~/.config/nvim/init.lua`
+4. 启动nvim，输入`:PackerInstall`安装插件
+5. 复制配置: `cp Nvim-Setting/* ~/.config/nvim/`
+
 ## 使用方法 
 1. 按下;运行命令（替代:），输入PackerInstall回车，等待下载完毕 
 2. 重启Neovim 
@@ -18,4 +26,5 @@
 5. 使用packer.nvim进行插件管理
 6. 使用lualine进行状态栏增强
 7. 使用vim-easycomplete进行补全
+8. 其他配置
 

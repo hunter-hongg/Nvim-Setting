@@ -80,6 +80,13 @@ require('lualine').setup {
 require('toggleterm').setup{}
 -- 2048配置
 require('2048').setup{}
+-- global-note配置
+local global_note = require("global-note")
+global_note.setup()
+
+vim.keymap.set("n", "<leader>n", global_note.toggle_note, {
+  desc = "Toggle global note",
+})
 -- 基本设置
 
 vim.cmd("set nocompatible")
@@ -126,6 +133,7 @@ vim.cmd("nnoremap <F6> :colorscheme vscode<CR>")
 vim.cmd("nnoremap <F7> :colorscheme nord<CR>")
 vim.cmd("nnoremap <F8> :colorscheme horizon<CR>")
 vim.cmd("nnoremap <F9> :Play2048<CR>")
+vim.cmd("nnoremap <F10> :GlobalNote<CR>")
 
 -- Meta快捷键 
 
@@ -146,6 +154,7 @@ vim.cmd("nnoremap <Leader>g :Git add .<CR>")
 vim.cmd("nnoremap <Leader>o :Git push origin master<CR>")
 
 vim.cmd("nnoremap <Leader>e :e $MYVIMRC<CR>")
+vim.cmd("nnoremap <Leader>p :e ~/.config/nvim/packer.lua<CR>")
 vim.cmd("nnoremap <Leader>s :so $MYVIMRC<CR>")
 
 vim.cmd("nnoremap <Leader>ts :cd ~/学习平台<CR>")
