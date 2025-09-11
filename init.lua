@@ -84,39 +84,8 @@ vim.keymap.set("n", "<leader>n", global_note.toggle_note, {
 })
 -- Comment.nvim配置
 require('Comment').setup()
--- GNvim配置
-local api = vim.api
--- Only setup gnvim when it attaches.
-api.nvim_create_autocmd({'UIEnter'}, {
-  callback = function(event)
-    local chanid = vim.v.event['chan']
-    local chan = vim.api.nvim_get_chan_info(chanid)
-    if chan.client and chan.client.name ~= 'gnvim' then
-      return
-    end
-
-    -- Gnvim brings its own runtime files.
-    --
-    -- If you're using lazy.nvim, you can use g:gnvim_rtp_path to get the
-    -- path to gnvim's runtime files and use it with lazy's
-    -- performance.rtp.paths to include gnvim's runtime files without any
-    -- external plug.
-    local gnvim = require('gnvim')
-
-    -- Set the font
-    vim.opt.guifont = 'Monospace Regular 9'
-
-    -- Increase/decrease font.
-    vim.keymap.set('n', '<c-+>', function() gnvim.font_size(1) end)
-    vim.keymap.set('n', '<c-->', function() gnvim.font_size(-1) end)
-
-    gnvim.setup({
-        cursor = {
-            blink_transition = 300
-        }
-    })
-  end
-})
+-- todo-comments.nvim配置
+require('todo-comments').setup()
 
 -- 基本设置
 

@@ -79,4 +79,8 @@ require('packer').startup(function(use)
    use 'backdround/global-note.nvim'
    use {'stevearc/dressing.nvim'}
    use 'lewis6991/gitsigns.nvim'
+   use {
+        "folke/todo-comments.nvim",
+        requires = { "nvim-lua/plenary.nvim" }
+   }
 end)
