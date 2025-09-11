@@ -1,13 +1,8 @@
 -- Neovim配置文件
 
+-- 文件配置
 require("config.packer")
--- Treesitter配置
-require 'nvim-treesitter.configs'.setup {
-    ensure_installed = {"c", "lua", "python", "cpp", "rust", "markdown"},
-    highlight = {enable = true },
-    incremental_selection = {enable = true},
-    indent = {enable = true},
-}
+require("config.treesitter")
 -- NvimTree配置
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -78,7 +73,7 @@ require('lualine').setup {
 }
 -- toggleterm配置
 require('toggleterm').setup{}
--- 2048配置
+-- 2048.nvim配置
 require('2048').setup{}
 -- global-note配置
 local global_note = require("global-note")
@@ -87,6 +82,42 @@ global_note.setup()
 vim.keymap.set("n", "<leader>n", global_note.toggle_note, {
   desc = "Toggle global note",
 })
+-- Comment.nvim配置
+require('Comment').setup()
+-- GNvim配置
+local api = vim.api
+-- Only setup gnvim when it attaches.
+api.nvim_create_autocmd({'UIEnter'}, {
+  callback = function(event)
+    local chanid = vim.v.event['chan']
+    local chan = vim.api.nvim_get_chan_info(chanid)
+    if chan.client and chan.client.name ~= 'gnvim' then
+      return
+    end
+
+    -- Gnvim brings its own runtime files.
+    --
+    -- If you're using lazy.nvim, you can use g:gnvim_rtp_path to get the
+    -- path to gnvim's runtime files and use it with lazy's
+    -- performance.rtp.paths to include gnvim's runtime files without any
+    -- external plug.
+    local gnvim = require('gnvim')
+
+    -- Set the font
+    vim.opt.guifont = 'Monospace Regular 9'
+
+    -- Increase/decrease font.
+    vim.keymap.set('n', '<c-+>', function() gnvim.font_size(1) end)
+    vim.keymap.set('n', '<c-->', function() gnvim.font_size(-1) end)
+
+    gnvim.setup({
+        cursor = {
+            blink_transition = 300
+        }
+    })
+  end
+})
+
 -- 基本设置
 
 vim.cmd("set nocompatible")
@@ -122,6 +153,10 @@ vim.cmd("let g:rainbow_ctermfgs = ['lightblue','yellow','lightyellow','blue','gr
 vim.cmd("let g:indentLine_char = '|'")
 vim.cmd("let g:rainbow_active = 1")
 
+-- ab命令配置
+
+vim.cmd("ab xxcc 学习平台/note/")
+
 -- Fm快捷键 
 
 vim.cmd("nnoremap <F1> :bn<CR>")
@@ -148,10 +183,8 @@ vim.cmd("nnoremap <C-m> :make")
 -- Leader快捷键
 
 vim.cmd("nnoremap <Leader>m :make<CR>")
-
-vim.cmd("nnoremap <Leader>c :Git commit<CR>")
-vim.cmd("nnoremap <Leader>g :Git add .<CR>")
-vim.cmd("nnoremap <Leader>o :Git push origin master<CR>")
+vim.cmd("nnoremap <Leader>w :w ~/")
+vim.cmd("nnoremap <Leader>q :q<CR>")
 
 vim.cmd("nnoremap <Leader>e :e $MYVIMRC<CR>")
 vim.cmd("nnoremap <Leader>p :e ~/.config/nvim/packer.lua<CR>")
@@ -174,6 +207,7 @@ vim.cmd("nnoremap <C-l> <C-w><C-l>")
 
 vim.cmd("nnoremap <C-t> :NvimTreeToggle<CR>")
 vim.cmd("nnoremap <C-g> :Neogit<CR>")
+vim.cmd("nnoremap <C-`> :ToggleTerm<CR>")
 
 -- 对调;:
 
@@ -191,3 +225,5 @@ vim.cmd("nnoremap <C-w><Right> q\\")
 vim.cmd("nnoremap <C-w><Up> q\\")
 vim.cmd("nnoremap <C-w><Down> q\\")
 
+-- Ctrl快捷键
+vim.cmd("nnoremap <C-s> :wa<CR>")

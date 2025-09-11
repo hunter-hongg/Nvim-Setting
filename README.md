@@ -10,7 +10,7 @@
 3. 复制插件下载: `cp Nvim-Setting/packer.lua ~/.config/nvim/init.lua`
 4. 启动nvim，输入`:PackerInstall`安装插件
 5. 复制配置: `cp Nvim-Setting/* ~/.config/nvim/`
-
+6. 硬链接配置: `ln ~/.config/nvim/packer.lua /usr/local/share/lua/?/config/; ln ~/.config/nvim/treesitter.lua /usr/local/share/lua/?/config; `
 ## 使用方法 
 1. 按下;运行命令（替代:），输入PackerInstall回车，等待下载完毕 
 2. 重启Neovim 
@@ -26,5 +26,6 @@
 5. 使用packer.nvim进行插件管理
 6. 使用lualine进行状态栏增强
 7. 使用vim-easycomplete进行补全
-8. 其他配置
+8. 配置Neogit
+等等
 

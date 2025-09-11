@@ -70,5 +70,13 @@ require('packer').startup(function(use)
             require("2048").setup()
         end,
     })
-    use 'backdround/global-note.nvim'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+   use 'backdround/global-note.nvim'
+   use {'stevearc/dressing.nvim'}
+   use 'lewis6991/gitsigns.nvim'
 end)
