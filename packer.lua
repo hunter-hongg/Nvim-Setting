@@ -6,30 +6,27 @@ require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter'
     use 'neovim/nvim-lspconfig'
     use 'simrat39/rust-tools.nvim'
---  use 'preservim/vim-markdown'
---  use {
---    'Kicamon/markdown-table-mode.nvim', 
---    config = function()
---      require 'markdown-table-mode'.setup()
---    end, 
---  }
---  use {
---    'tadmccorkle/markdown.nvim', 
---    config = function()
---      require 'markdown'.setup()
---    end, 
---  }
 
     use 'olimorris/onedarkpro.nvim'
     use 'shaunsingh/nord.nvim'
     use 'mofiqul/vscode.nvim'
     use 'lourenci/github-colors'
     use {"akinsho/horizon.nvim", tag = "*"}
---  use 'ashish2508/Eezzy.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
     use "rebelot/kanagawa.nvim"
+    use ({ 'projekt0n/github-nvim-theme' })
+    use { "scottmckendry/cyberdream.nvim" }
+    use 'Mofiqul/dracula.nvim'
+    use 'f4z3r/gruvbox-material.nvim'
+    use 'folke/tokyonight.nvim'
+    use 'slugbyte/lackluster.nvim'
+    use {
+      "rockyzhang24/arctic.nvim",
+      requires = { "rktjmp/lush.nvim" }
+    }
+    use "rafamadriz/neon"
+    use("oxfist/night-owl.nvim")
 
---  use 'itchyny/lightline.vim'
     use {
         's1n7ax/nvim-terminal', 
         config = function()
@@ -53,7 +50,7 @@ require('packer').startup(function(use)
     use 'nvim-tree/nvim-tree.lua'
     use 'Yggdroot/indentLine'
     use 'rlue/vim-barbaric'
-    use 'jayli/vim-easycomplete'
+    use { 'jayli/vim-easycomplete', requires = {'L3MON4D3/LuaSnip'}}
     use 'tpope/vim-fugitive'
     use 'frazrepo/vim-rainbow'
     use 'tpope/vim-surround'
@@ -82,5 +79,18 @@ require('packer').startup(function(use)
    use {
         "folke/todo-comments.nvim",
         requires = { "nvim-lua/plenary.nvim" }
+   }
+   use 'skanehira/gh.vim'
+   use {'nvimdev/dashboard-nvim',
+    requires = { 'juansalvatore/git-dashboard-nvim','nvim-lua/plenary.nvim' },
+   }
+   use({
+    "kdheepak/lazygit.nvim",
+   })
+   use {
+    "jiaoshijie/undotree",
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
    }
 end)
