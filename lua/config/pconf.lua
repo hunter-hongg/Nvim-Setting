@@ -62,7 +62,7 @@ require('todo-comments').setup()
 require("fzf-lua").setup{
     file_icons = false, 
 }
-vim.cmd("nnoremap <C-p> :lua FzfLua.files{ file_icons = false }<CR>")
+vim.cmd("nnoremap <C-p> :lua FzfLua.files()<CR>")
 -- nvim-treesitter配置
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = {"c", "lua", "python", "cpp", "rust", "markdown", "html", "go"},
@@ -74,5 +74,60 @@ require 'nvim-treesitter.configs'.setup {
 local bufferline = require('bufferline')
 bufferline.setup {
 }
--- gitsigns配置
-gitsigns.setup{}
+-- Set up nvim-cmp.
+local cmp = require'cmp'
+-- local insert = minisnippets.config.expand.insert or minisnippets.default_insert
+
+cmp.setup({
+--  snippet = {
+--   insert({ body = args.body }) 
+--   cmp.resubscribe({ "textchangedi", "textchangedp" })
+--   require("cmp.config").set_onetime({ sources = {} })
+--  },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<c-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<c-f>'] = cmp.mapping.scroll_docs(4),
+      ['<c-space>'] = cmp.mapping.complete(),
+      ['<c-e>'] = cmp.mapping.abort(),
+      ['<cr>'] = cmp.mapping.confirm({ select = true }), 
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      {
+        name = "mini_snippets",
+        option = {
+          use_items_cache = false 
+        }
+      }, 
+      { name = 'buffer' },
+    })
+})
+-- use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+})
+-- use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    }),
+    matching = { disallow_symbol_nonprefix_matching = false }
+})
+
+-- set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- replace <your_lsp_server> with each lsp server you've enabled.
+require('lspconfig')['cpp'].setup {
+    capabilities = capabilities
+}
+
