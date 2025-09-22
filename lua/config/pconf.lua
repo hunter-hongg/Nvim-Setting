@@ -60,12 +60,11 @@ require('toggleterm').setup{}
 require('todo-comments').setup()
 -- fzf-lua配置
 require("fzf-lua").setup{
-    file_icons = false, 
 }
 vim.cmd("nnoremap <C-p> :lua FzfLua.files()<CR>")
 -- nvim-treesitter配置
 require 'nvim-treesitter.configs'.setup {
-    ensure_installed = {"c", "lua", "python", "cpp", "rust", "markdown", "html", "go"},
+    ensure_installed = {"c", "lua", "python", "cpp", "rust", "html", "go"},
     highlight = {enable = true },
     incremental_selection = {enable = true},
     indent = {enable = true},
@@ -125,9 +124,9 @@ cmp.setup.cmdline(':', {
 })
 
 -- set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- replace <your_lsp_server> with each lsp server you've enabled.
-require('lspconfig')['cpp'].setup {
-    capabilities = capabilities
-}
+-- vim.lsp.config.setup {
+    -- capabilities = capabilities
+-- }
 
