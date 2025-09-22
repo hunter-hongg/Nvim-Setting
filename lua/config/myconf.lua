@@ -29,6 +29,7 @@ vim.cmd("let g:rainbow_active = 1")
 -- ab命令
 
 vim.cmd("ab xxcc ~/学习平台/note/")
+vim.cmd("ab lazy Lazy") 
 vim.cmd("ab lazypl ~/.config/lua/plugins")
 
 -- Fm快捷键
@@ -55,7 +56,7 @@ vim.cmd("nnoremap <Leader>e :e ~/.config/nvim/lua/config/myconf.lua<CR>")
 vim.cmd("nnoremap <Leader>p :e ~/.config/nvim/lua/config/pconf.lua<CR>")
 vim.cmd("nnoremap <Leader>l :e ~/.config/nvim/lua/plugins<CR>")
 
-vim.cmd("nnoremap <Leader>t :cd")
+vim.cmd("nnoremap <Leader>t :cd ")
 vim.cmd("nnoremap <Leader>ts :cd ~/学习平台<CR>")
 vim.cmd("nnoremap <Leader>tr :cd ~/RSLN<CR>")
 
@@ -65,13 +66,18 @@ vim.cmd("nnoremap <C-`> :ToggleTerm<CR>")
 vim.cmd("nnoremap <C-g> :Neogit<CR>")
 vim.cmd("nnoremap <C-s> :wa<CR>")
 vim.cmd("nnoremap <C-o> :NvimTreeToggle<CR>")
-vim.cmd("nnoremap <C-Tab> :bn")
-vim.cmd("nnoremap <C-PageUp> :bp")
-vim.cmd("nnoremap <C-PageDown> :bn")
+vim.cmd("nnoremap <C-Tab> :bn<CR>")
+vim.cmd("nnoremap <C-PageUp> :bp<CR>")
+vim.cmd("nnoremap <C-PageDown> :bn<CR>")
 
 -- Ctrl快捷键旧
+
 vim.cmd("nnoremap <C-t> :NvimTreeToggle<CR>")
 vim.cmd("nnoremap <C-l> :Lazy<CR>")
+
+-- Meta快捷键
+
+vim.cmd("nnoremap <M-l> :Lazy<CR>")
 
 -- 对调;:
 
