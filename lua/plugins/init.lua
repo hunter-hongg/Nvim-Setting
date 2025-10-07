@@ -177,7 +177,12 @@ return {
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
         bigfile = { enabled = true },
-        dashboard = { enabled = true },
+        bufdelete = {
+            enabled = true,
+        }, 
+        dashboard = {
+          enabled = true, 
+        },
         explorer = { enabled = true },
         indent = { enabled = true },
         input = { enabled = true },
@@ -197,8 +202,19 @@ return {
             }
         } ,
         words = { enabled = true },
-        terminal = { enabled = true },
+        terminals = {enabled = true},
         toggle = { enabled = true },
       },
-    }
+    },
+    {
+      "jiaoshijie/undotree",
+      ---@module 'undotree.collector'
+      ---@type UndoTreeCollector.Opts
+      opts = {
+        -- your options
+      },
+      keys = { -- load the plugin only when using it's keybinding:
+        { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+      },
+    },
 } 

@@ -24,6 +24,9 @@ require("nvim-tree").setup {
         git_ignored = true,
         dotfiles = true,
     },
+    view = {
+      width = 30,
+    },
 }
 -- 2048.nvim配置
 require('2048').setup{}

@@ -57,7 +57,6 @@ vim.cmd("nnoremap <Leader>q :q<CR>")
 vim.cmd("nnoremap <Leader>s :source $MYVIMRC<CR>")
 vim.cmd("nnoremap <Leader>e :e ~/.config/nvim/lua/conf/myconf.lua<CR>")
 vim.cmd("nnoremap <Leader>p :e ~/.config/nvim/lua/conf/pconf.lua<CR>")
-vim.cmd("nnoremap <Leader>u :e ~/.config/nvim/lua/conf/lualine-conf.lua<CR>")
 vim.cmd("nnoremap <Leader>l :e ~/.config/nvim/lua/plugins<CR>")
 
 vim.cmd("nnoremap <Leader>t :cd ")
@@ -88,8 +87,6 @@ vim.cmd("nnoremap <C-Tab> :bn<CR>")
 vim.cmd("nnoremap <C-PageUp> :bp<CR>")
 vim.cmd("nnoremap <C-PageDown> :bn<CR>")
 vim.cmd("nnoremap <C-p> :lua Snacks.picker.files()<CR>")
-vim.cmd("nnoremap <M-s> :lua MiniSessions.write('")
-vim.cmd("nnoremap <M-r> :lua MiniSessions.read('")
 
 -- Ctrl快捷键旧
 
@@ -99,6 +96,10 @@ vim.cmd("nnoremap <C-t> :echo \'<C-t>快捷键已经不再使用。请使用<C-o
 
 vim.cmd("nnoremap <M-x> :Lazy<CR>")
 vim.cmd("nnoremap <M-d> :lua Snacks.dashboard()<cr>")
+vim.cmd("nnoremap <M-s> :lua MiniSessions.write('")
+vim.cmd("nnoremap <M-r> :lua MiniSessions.read('")
+vim.cmd("nnoremap <M-u> :lua require('undotree').toggle()<cr>")
+vim.cmd("nnoremap <M-q> :lua require('undotree').toggle()<cr>:lua require('undotree').toggle()<cr>")
 
 -- 对调;:
 
