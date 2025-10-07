@@ -2,5 +2,7 @@ vim.cmd("let mapleader=\",\"")
 require("config.lazy")
 require("conf.myconf")
 require("conf.pconf")
-vim.cmd("colorscheme onedark_dark")
+require("conf.cmake-tools-conf")
+require("conf.lualine-conf")
+vim.cmd("colorscheme onelight")
 

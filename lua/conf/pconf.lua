@@ -1,28 +1,3 @@
--- lualine配置
-require('lualine').setup {
-    options = {
-        icons_enabled = false,
-        theme = 'onedark',
-        component_separators = { left = '|', right = '|'},
-        section_separators = { left = '', right = ''},
-    },
-    sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff'},
-        lualine_c = {'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-    },
-}
 -- nvim-tree配置
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -58,10 +33,6 @@ require('Comment').setup()
 require('toggleterm').setup{}
 -- todo-comments.nvim配置
 require('todo-comments').setup()
--- fzf-lua配置
-require("fzf-lua").setup{
-}
-vim.cmd("nnoremap <C-p> :lua FzfLua.files()<CR>")
 -- nvim-treesitter配置
 require 'nvim-treesitter.configs'.setup {
     ensure_installed = {"c", "lua", "python", "cpp", "rust", "html", "go"},
@@ -171,3 +142,13 @@ vim.g.rainbow_delimiters = {
        'RainbowDelimiterCyan',
    },
 }
+-- mini.ai配置
+require('mini.ai').setup()
+-- mini.comment配置
+require('mini.comment').setup({})
+-- neoscroll配置
+require('neoscroll').setup()
+-- mini.sessions配置
+require('mini.sessions').setup()
+-- mini.splitjoin配置
+require('mini.splitjoin').setup()

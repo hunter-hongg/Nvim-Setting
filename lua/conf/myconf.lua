@@ -17,6 +17,8 @@ vim.cmd("set nobackup")
 vim.cmd("set nowritebackup")
 vim.cmd("set noswapfile")
 vim.cmd("set nu")
+vim.cmd("set clipboard+=unnamedplus")
+vim.cmd("set background=light")
 vim.cmd("syntax enable")
 vim.cmd("filetype plugin indent on")
 
@@ -27,18 +29,18 @@ vim.cmd("let g:rainbow_active = 1")
 
 -- ab命令
 
-vim.cmd("ab xxcc ~/学习平台/note/")
+vim.cmd("ab xxcc ~/学习平台/")
+vim.cmd("ab cmod ~/cmakeout/")
 vim.cmd("ab lazypl ~/.config/lua/plugins")
 
 -- Fm快捷键
 
 vim.cmd("nnoremap <F1> <<")
 vim.cmd("nnoremap <F2> >>")
-vim.cmd("nnoremap <F3> :colorscheme onedark_dark<CR>")
-vim.cmd("nnoremap <F4> :colorscheme arctic<CR>")
-vim.cmd("nnoremap <F5> :colorscheme horizon<CR>")
-vim.cmd("nnoremap <F7> :syn on<CR>")
-vim.cmd("nnoremap <F8> :RenderMarkdown enable<CR>")
+vim.cmd("nnoremap <F3> :colorscheme onelight<CR>")
+vim.cmd("nnoremap <F4> :colorscheme tokyonight-day<CR>")
+vim.cmd("nnoremap <F5> :colorscheme leaf<CR>")
+vim.cmd("nnoremap <F6> :colorscheme gruvbox<CR>")
 vim.cmd("nnoremap <F9> :Play2048<CR>")
 vim.cmd("nnoremap <F10> :GlobalNote<CR>")
 
@@ -52,34 +54,51 @@ vim.cmd("nnoremap <M-m> :make<CR>")
 vim.cmd("nnoremap <Leader>w :w ")
 vim.cmd("nnoremap <Leader>q :q<CR>")
 
+vim.cmd("nnoremap <Leader>s :source $MYVIMRC<CR>")
 vim.cmd("nnoremap <Leader>e :e ~/.config/nvim/lua/conf/myconf.lua<CR>")
 vim.cmd("nnoremap <Leader>p :e ~/.config/nvim/lua/conf/pconf.lua<CR>")
+vim.cmd("nnoremap <Leader>u :e ~/.config/nvim/lua/conf/lualine-conf.lua<CR>")
 vim.cmd("nnoremap <Leader>l :e ~/.config/nvim/lua/plugins<CR>")
 
 vim.cmd("nnoremap <Leader>t :cd ")
 vim.cmd("nnoremap <Leader>ts :cd ~/学习平台<CR>")
-vim.cmd("nnoremap <Leader>tr :cd ~/RSLN<CR>")
+vim.cmd("nnoremap <Leader>tp :cd ~/PerlLearning<CR>")
+vim.cmd("nnoremap <Leader>tc :cd ~/cding<cr>")
+
+vim.cmd("nnoremap <Leader>mb :CMakeSelectBuildDir /home/coding/cmakeout<CR>")
+vim.cmd("nnoremap <Leader>mc :CMakeSelectCwd") 
+vim.cmd("nnoremap <Leader>mx :CMakeSelectCwd /home/coding/学习平台<CR>")
+vim.cmd("nnoremap <Leader>mk :CMakeBuild -j4<CR>")
+vim.cmd("nnoremap <Leader>mr :CMakeRun<CR>")
 
 -- Ctrl快捷键新
 
 vim.cmd("nnoremap <C-`> :ToggleTerm<CR>")
 vim.cmd("nnoremap <C-g> :Neogit<CR>")
-vim.cmd("nnoremap <C-s> :wa<CR>")
+vim.cmd("nnoremap <C-s> :wa!<CR>")
 vim.cmd("inoremap <C-s> <Esc>:wa<CR>i")
 vim.cmd("nnoremap <C-o> :NvimTreeToggle<CR>")
 vim.cmd("nnoremap <C-x> :")
+vim.cmd("nnoremap <C-h> <C-w>h")
+vim.cmd("nnoremap <C-j> <C-w>j")
+vim.cmd("nnoremap <C-k> <C-w>k")
+vim.cmd("nnoremap <C-l> <C-w>l")
+vim.cmd("nnoremap <C-e> :e ~/.config/nvim/lua/conf/lualine-conf.lua")
 vim.cmd("nnoremap <C-Tab> :bn<CR>")
 vim.cmd("nnoremap <C-PageUp> :bp<CR>")
 vim.cmd("nnoremap <C-PageDown> :bn<CR>")
+vim.cmd("nnoremap <C-p> :lua Snacks.picker.files()<CR>")
+vim.cmd("nnoremap <M-s> :lua MiniSessions.write('")
+vim.cmd("nnoremap <M-r> :lua MiniSessions.read('")
 
 -- Ctrl快捷键旧
 
 vim.cmd("nnoremap <C-t> :echo \'<C-t>快捷键已经不再使用。请使用<C-o>打开NvimTree\'<CR>")
-vim.cmd("nnoremap <C-l> :echo \'<C-l>快捷键已经不再使用。请使用<M-x>打开Lazy面板\'<CR>")
 
 -- Meta快捷键
 
 vim.cmd("nnoremap <M-x> :Lazy<CR>")
+vim.cmd("nnoremap <M-d> :lua Snacks.dashboard()<cr>")
 
 -- 对调;:
 

@@ -156,4 +156,49 @@ return {
         -- use opts = {} for passing setup options
         -- this is equivalent to setup({}) function
     },
+    { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+    },
+    { "rebelot/kanagawa.nvim" },
+    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, },
+    { "daschw/leaf.nvim" },
+    {
+      "folke/snacks.nvim",
+      priority = 1000,
+      lazy = false,
+      ---@type snacks.Config
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+        bigfile = { enabled = true },
+        dashboard = { enabled = true },
+        explorer = { enabled = true },
+        indent = { enabled = true },
+        input = { enabled = true },
+        picker = { enabled = true },
+        notifier = { enabled = true },
+        quickfile = { enabled = true },
+        scope = { enabled = true },
+        scroll = { enabled = true },
+        statuscolumn = {
+            enabled = true,
+            left = { "mark", "sign" },  -- 左侧显示标记和符号
+            right = { "git", "fold" },  -- 右侧显示Git状态和折叠图标
+            refresh = 50,               -- 刷新间隔(ms)
+            folds = {                   -- 折叠图标配置
+              open = true,              -- 显示展开折叠图标
+              git_hl = true             -- 使用Git Signs高亮
+            }
+        } ,
+        words = { enabled = true },
+        terminal = { enabled = true },
+        toggle = { enabled = true },
+      },
+    }
 } 
