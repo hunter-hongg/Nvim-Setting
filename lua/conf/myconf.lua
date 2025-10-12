@@ -41,8 +41,9 @@ vim.cmd("nnoremap <F3> :colorscheme onelight<CR>")
 vim.cmd("nnoremap <F4> :colorscheme tokyonight-day<CR>")
 vim.cmd("nnoremap <F5> :colorscheme leaf<CR>")
 vim.cmd("nnoremap <F6> :colorscheme gruvbox<CR>")
+vim.cmd("nmap <F8> <F10><Esc>")
 vim.cmd("nnoremap <F9> :Play2048<CR>")
-vim.cmd("nnoremap <F10> :GlobalNote<CR>")
+vim.cmd("nnoremap <F10> :CMakeSelectCwd /home/coding/学习平台<cr>:CMakeSelectBuildDir /home/coding/cmakeout<cr>:!rm ~/桌面/out<cr>:!rm ~/桌面/*.json<cr>")
 
 -- Make快捷键
 
@@ -73,7 +74,7 @@ vim.cmd("nnoremap <Leader>mr :CMakeRun<CR>")
 -- Ctrl快捷键新
 
 vim.cmd("nnoremap <C-`> :ToggleTerm<CR>")
-vim.cmd("nnoremap <C-g> :Neogit<CR>")
+vim.cmd("nnoremap <C-g> :LazyGit<CR>")
 vim.cmd("nnoremap <C-s> :wa!<CR>")
 vim.cmd("inoremap <C-s> <Esc>:wa<CR>i")
 vim.cmd("nnoremap <C-o> :NvimTreeToggle<CR>")
@@ -99,7 +100,7 @@ vim.cmd("nnoremap <M-d> :lua Snacks.dashboard()<cr>")
 vim.cmd("nnoremap <M-s> :lua MiniSessions.write('")
 vim.cmd("nnoremap <M-r> :lua MiniSessions.read('")
 vim.cmd("nnoremap <M-u> :lua require('undotree').toggle()<cr>")
-vim.cmd("nnoremap <M-q> :lua require('undotree').toggle()<cr>:lua require('undotree').toggle()<cr>")
+vim.cmd("nnoremap <M-q> :Rg ")
 
 -- 对调;:
 

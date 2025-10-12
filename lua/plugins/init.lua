@@ -217,4 +217,5 @@ return {
         { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
       },
     },
+    { "duane9/nvim-rg" },
 } 
