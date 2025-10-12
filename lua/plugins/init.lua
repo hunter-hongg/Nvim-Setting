@@ -181,8 +181,6 @@ return {
            enabled = true, 
            preset = {
              keys = {
-               { key = "f", desc = "查找文件", 
-                         action = ":lua Snacks.dashboard.pick('files')" },
                { key = "n", desc = "新建文件", 
                          action = ":ene | startinsert" },
                { key = "c", desc = "配置文件", 
@@ -194,6 +192,10 @@ return {
                          enabled = package.loaded.lazy ~= nil },
                { key = "a", desc = "退出面版", 
                          action = ":q" }, 
+               { key = "k", desc = "构建CMake", 
+                         action = ":CMakeBuild -j4" }, 
+               { key = "r", desc = "运行CMake", 
+                         action = ":CMakeRun" }, 
                { key = "q", desc = "退出Neovim", action = ":qa" },
              },
           }, 
@@ -248,4 +250,8 @@ return {
           });
         end
     },
+    {
+        'nvim-telescope/telescope.nvim', tag = '0.1.8',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    }, 
 } 

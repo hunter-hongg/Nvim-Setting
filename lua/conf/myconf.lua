@@ -45,11 +45,6 @@ vim.cmd("nmap <F8> <F10><Esc>")
 vim.cmd("nnoremap <F9> :Play2048<CR>")
 vim.cmd("nnoremap <F10> :CMakeSelectCwd /home/coding/学习平台<cr>:CMakeSelectBuildDir /home/coding/cmakeout<cr>:!rm ~/桌面/out<cr>:!rm ~/桌面/*.json<cr>")
 
--- Make快捷键
-
-vim.cmd("nnoremap <C-m> :make")
-vim.cmd("nnoremap <M-m> :make<CR>")
-
 -- Leader快捷键
 
 vim.cmd("nnoremap <Leader>w :w ")
@@ -71,6 +66,11 @@ vim.cmd("nnoremap <Leader>mx :CMakeSelectCwd /home/coding/学习平台<CR>")
 vim.cmd("nnoremap <Leader>mk :CMakeBuild -j4<CR>")
 vim.cmd("nnoremap <Leader>mr :CMakeRun<CR>")
 
+vim.cmd("nnoremap <leader>ff <cmd>Telescope find_files<cr>")
+vim.cmd("nnoremap <leader>fg <cmd>Telescope live_grep<cr>")
+vim.cmd("nnoremap <leader>fb <cmd>Telescope buffers<cr>")
+vim.cmd("nnoremap <leader>fh <cmd>Telescope help_tags<cr>")
+
 -- Ctrl快捷键新
 
 vim.cmd("nnoremap <C-`> :ToggleTerm<CR>")
@@ -88,6 +88,9 @@ vim.cmd("nnoremap <C-Tab> :bn<CR>")
 vim.cmd("nnoremap <C-PageUp> :bp<CR>")
 vim.cmd("nnoremap <C-PageDown> :bn<CR>")
 vim.cmd("nnoremap <C-p> :lua Snacks.picker.files()<CR>")
+vim.cmd("nnoremap <C-z> u")
+vim.cmd("nmap <C-m> <C-o><C-o><C-o>")
+vim.cmd("nnoremap <C-M-z> <C-r>")
 
 -- Ctrl快捷键旧
 
