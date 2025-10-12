@@ -173,15 +173,30 @@ return {
       lazy = false,
       ---@type snacks.Config
       opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
         bigfile = { enabled = true },
         bufdelete = {
             enabled = true,
         }, 
         dashboard = {
-          enabled = true, 
+            enabled = true, 
+            preset = {
+                keys = {
+                  { icon = " ", key = "f", desc = "Find File", 
+                            action = ":lua Snacks.dashboard.pick('files')" },
+                  { icon = " ", key = "n", desc = "New File", 
+                            action = ":ene | startinsert" },
+                  { icon = " ", key = "r", desc = "Recent Files",
+                            action = ":lua Snacks.dashboard.pick('oldfiles')" },
+                  { icon = " ", key = "c", desc = "Config", 
+                            action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+                  { icon = " ", key = "s", desc = "Restore Session", 
+                            action = ":AutoSession search" },
+                  { icon = "󰒲 ", key = "L", desc = "Lazy", 
+                            action = ":Lazy", 
+                            enabled = package.loaded.lazy ~= nil },
+                  { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+                },
+            }, 
         },
         explorer = { enabled = true },
         indent = { enabled = true },
@@ -218,4 +233,19 @@ return {
       },
     },
     { "duane9/nvim-rg" },
+    {
+        'MagicDuck/grug-far.nvim',
+        -- Note (lazy loading): grug-far.lua defers all it's requires so it's lazy by default
+        -- additional lazy config to defer loading is not really needed...
+        config = function()
+          -- optional setup call to override plugin options
+          -- alternatively you can set options with vim.g.grug_far = { ... }
+          require('grug-far').setup({
+              showStatusIcon = false,
+              icons = {
+                    enabled = false, 
+                }, 
+          });
+        end
+    },
 } 

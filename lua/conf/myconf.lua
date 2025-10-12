@@ -97,10 +97,12 @@ vim.cmd("nnoremap <C-t> :echo \'<C-t>快捷键已经不再使用。请使用<C-o
 
 vim.cmd("nnoremap <M-x> :Lazy<CR>")
 vim.cmd("nnoremap <M-d> :lua Snacks.dashboard()<cr>")
-vim.cmd("nnoremap <M-s> :lua MiniSessions.write('")
-vim.cmd("nnoremap <M-r> :lua MiniSessions.read('")
+vim.cmd("nnoremap <M-s> :AutoSession save<cr>")
+vim.cmd("nnoremap <M-r> :AutoSession search<cr>")
 vim.cmd("nnoremap <M-u> :lua require('undotree').toggle()<cr>")
 vim.cmd("nnoremap <M-q> :Rg ")
+vim.cmd("nnoremap <M-e> :GrugFar<cr>")
+vim.cmd("inoremap <M-e> <Esc>:GrugFar<cr>")
 
 -- 对调;:
 
