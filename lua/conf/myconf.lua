@@ -24,14 +24,7 @@ vim.cmd("filetype plugin indent on")
 
 -- 变量
 
-vim.cmd("let g:indentLine_char = '|'")
 vim.cmd("let g:rainbow_active = 1")
-
--- ab命令
-
-vim.cmd("ab xxcc ~/学习平台/")
-vim.cmd("ab cmod ~/cmakeout/")
-vim.cmd("ab lazypl ~/.config/lua/plugins")
 
 -- Fm快捷键
 
@@ -73,7 +66,6 @@ vim.cmd("nnoremap <leader>fh <cmd>Telescope help_tags<cr>")
 
 -- Ctrl快捷键新
 
-vim.cmd("nnoremap <C-`> :ToggleTerm<CR>")
 vim.cmd("nnoremap <C-g> :LazyGit<CR>")
 vim.cmd("nnoremap <C-s> :wa!<CR>")
 vim.cmd("inoremap <C-s> <Esc>:wa<CR>i")
@@ -89,12 +81,7 @@ vim.cmd("nnoremap <C-PageUp> :bp<CR>")
 vim.cmd("nnoremap <C-PageDown> :bn<CR>")
 vim.cmd("nnoremap <C-p> :lua Snacks.picker.files()<CR>")
 vim.cmd("nnoremap <C-z> u")
-vim.cmd("nmap <C-m> <C-o><C-o><C-o>")
 vim.cmd("nnoremap <C-M-z> <C-r>")
-
--- Ctrl快捷键旧
-
-vim.cmd("nnoremap <C-t> :echo \'<C-t>快捷键已经不再使用。请使用<C-o>打开NvimTree\'<CR>")
 
 -- Meta快捷键
 
@@ -122,3 +109,14 @@ vim.cmd("nnoremap <Down> :echo \"请使用j向下移动\"<CR>")
 vim.cmd("nnoremap <Left> :echo \"请使用h向左移动\"<CR>")
 vim.cmd("nnoremap <Right> :echo \"请使用l向右移动\"<CR>")
 
+-- toggleterm.nvim特殊配置
+vim.cmd("\" set")
+vim.cmd("autocmd TermEnter term://*toggleterm#* tnoremap <silent><c-t> <Cmd>exe v:count1 . \"ToggleTerm\"<CR>")
+vim.cmd("\" By applying the mappings this way you can pass a count to your")
+vim.cmd("\" mapping to open a specific window.")
+vim.cmd("\" For example: 2<C-t> will open terminal 2")
+vim.cmd("nnoremap <silent><c-t> <Cmd>exe v:count1 . \"ToggleTerm\"<CR>")
+vim.cmd("inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . \"ToggleTerm\"<CR>")
+vim.cmd("nmap <silent><c-`> <c-t>")
+vim.cmd("imap <silent><c-`> <c-t>")
+vim.cmd("tmap <silent><c-`> <c-t>")

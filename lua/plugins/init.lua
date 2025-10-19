@@ -196,6 +196,8 @@ return {
                          action = ":CMakeBuild -j4" }, 
                { key = "r", desc = "运行CMake", 
                          action = ":CMakeRun -j4" }, 
+               { key = "R", desc = "生成CMake", 
+                         action = ":CMakeGenerate"},
                { key = "q", desc = "退出Neovim", action = ":qa" },
              },
           }, 

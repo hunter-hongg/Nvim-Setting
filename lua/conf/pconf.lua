@@ -147,8 +147,6 @@ vim.g.rainbow_delimiters = {
 }
 -- mini.ai配置
 require('mini.ai').setup()
--- mini.comment配置
-require('mini.comment').setup({})
 -- neoscroll配置
 require('neoscroll').setup()
 -- mini.sessions配置
